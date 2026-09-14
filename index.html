@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- Memberitahu browser bahwa ini dokumen HTML5 -->
+<html lang="id">
+<!-- lang="id" menandakan isi halaman berbahasa Indonesia, membantu screen reader & SEO -->
+
+<head>
+  <!-- Bagian <head> tidak tampil di layar, isinya metadata & pengaturan halaman -->
+  <meta charset="UTF-8" />
+  <!-- Supaya karakter khusus (é, &copy;, dll) tampil benar -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Wajib untuk web responsive: lebar halaman mengikuti lebar layar HP/tablet -->
+  <title>KMK Undiksha - Selamat Datang</title>
+  <!-- Teks yang muncul di tab browser -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Menghubungkan file CSS eksternal ke halaman ini -->
+</head>
+
+<body>
+  <!-- Semua yang tampil di layar browser ada di dalam <body> -->
+
+  <!-- ===== HEADER: kop biru berisi logo + nama organisasi ===== -->
+  <div class="header">
+    <img src="images/logo-kmk.png" alt="Logo KMK Undiksha" />
+    <!-- atribut alt wajib ada: teks pengganti kalau gambar gagal dimuat -->
+    <h1>KMK Undiksha</h1>
+  </div>
+
+  <!-- ===== KONTEN UTAMA: logo besar + teks sambutan + tombol ===== -->
+  <div class="welcome-content">
+    <img src="images/logo-kmk.png" alt="Logo KMK Undiksha" />
+    <div>
+      <h2>Selamat Datang</h2>
+      <p>
+        Selamat datang di halaman inventaris barang KMK (Keluarga Mahasiswa
+        Katolik) Undiksha. Silakan melakukan pembaruan data barang dengan
+        menekan tombol di bawah ini.
+      </p>
+      <!-- Tag <a> ini berfungsi sebagai tombol navigasi ke halaman form -->
+      <a href="update-barang.html" class="btn-update">Update Data Barang</a>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER: baris hak cipta paling bawah ===== -->
+  <div class="footer">Copyright &copy; KMK Undiksha</div>
+  <!-- &copy; adalah HTML entity, cara menulis simbol © tanpa karakter khusus langsung -->
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+/* ============================================================
+   RESET DASAR
+   Supaya semua browser mulai dari "titik nol" yang sama.
+   ============================================================ */
+* {
+  box-sizing: border-box; /* lebar elemen dihitung termasuk padding & border, jadi tidak melebar tak terduga */
+}
+
+body {
+  margin: 0; /* menghilangkan jarak putih bawaan browser di tepi halaman */
+  font-family: Arial, Helvetica, sans-serif; /* jenis huruf default seluruh halaman */
+  background-color: #f4f4f4; /* warna latar abu-abu muda di belakang konten */
+}
+
+/* ============================================================
+   HEADER (kop halaman biru-teal berisi logo + judul)
+   Dipakai di index.html DAN update-barang.html
+   ============================================================ */
+.header {
+  background-color: #a9d3d6;   /* warna biru-teal kop halaman */
+  padding: 15px 25px;          /* jarak dalam supaya logo & teks tidak mepet tepi */
+  display: flex;               /* flexbox: menyusun logo & teks sejajar horizontal */
+  align-items: center;         /* menyamakan logo & teks secara vertikal di tengah */
+  gap: 15px;                   /* jarak antara logo dan teks judul */
+}
+.header img {
+  height: 55px; /* tinggi logo dipatok, lebar menyesuaikan otomatis */
+}
+.header h1 {
+  margin: 0;           /* hilangkan margin bawaan tag <h1> */
+  font-size: 22px;
+  color: #1a1a1a;
+}
+.header p {
+  margin: 2px 0 0;     /* sedikit jarak di atas subjudul, supaya menempel rapi di bawah h1 */
+  font-size: 14px;
+  color: #333;
+}
+
+/* ============================================================
+   LAYOUT UTAMA 2 KOLOM (memakai <table>: menu kiri, konten kanan)
+   Dipakai khusus di update-barang.html
+   ============================================================ */
+.layout {
+  width: 100%;
+  border-collapse: collapse; /* menghilangkan celah antar sel tabel */
+  background-color: #ffffff;
+}
+.layout td {
+  vertical-align: top; /* isi sel rata atas, bukan rata tengah */
+  padding: 20px;
+}
+.menu-col {
+  width: 160px;                 /* lebar kolom menu di sebelah kiri dipatok */
+  border-right: 1px solid #ddd; /* garis pemisah tipis antara menu & konten */
+  background-color: #fafafa;
+}
+.menu-col h3 { margin-top: 0; font-size: 16px; }
+.menu-col ul {
+  list-style: none; /* menghilangkan bullet/titik bawaan <ul> */
+  padding: 0;
+  margin: 0;
+}
+.menu-col li { margin-bottom: 12px; } /* jarak antar link menu */
+.menu-col a { color: #0645ad; text-decoration: underline; }
+
+/* ============================================================
+   TABEL FORM BIODATA/BARANG
+   Mengatur agar label (kiri), tanda titik dua, dan input (kanan) rapi
+   ============================================================ */
+.form-table td {
+  padding: 6px 8px;
+  vertical-align: middle;
+}
+.form-table .label-col {
+  width: 130px;       /* lebar kolom label dipatok, biar semua input sejajar */
+  font-weight: normal;
+}
+.form-table input[type="text"],
+.form-table input[type="number"],
+.form-table select,
+.form-table textarea {
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  width: 260px;       /* lebar seragam untuk semua kotak input */
+}
+.form-table textarea {
+  height: 80px; /* kotak komentar/keterangan dibuat lebih tinggi dari input teks biasa */
+}
+
+/* Tombol "Simpan" */
+.btn-simpan {
+  background-color: #cfeeee;
+  border: 1px solid #9bcaca;
+  padding: 6px 20px;
+  cursor: pointer; /* kursor berubah jadi tangan saat dihover, menandakan bisa diklik */
+}
+.btn-simpan:hover {
+  background-color: #b5e0e0; /* warna sedikit lebih gelap saat kursor di atas tombol */
+}
+
+/* ============================================================
+   HALAMAN WELCOME (index.html)
+   ============================================================ */
+.welcome-content {
+  display: flex;       /* logo besar & teks disusun sejajar horizontal */
+  align-items: center; /* disejajarkan di tengah secara vertikal */
+  gap: 40px;           /* jarak antara logo besar dan blok teks */
+  padding: 60px 40px;
+}
+.welcome-content img { width: 160px; }
+.welcome-content h2 { margin-top: 0; }
+.btn-update {
+  background-color: #cfeeee;
+  border: 1px solid #9bcaca;
+  padding: 10px 20px;
+  text-decoration: none; /* menghilangkan garis bawah bawaan tag <a> */
+  color: #1a1a1a;
+  display: inline-block; /* supaya padding atas-bawah pada link ini berlaku (link biasa tidak bisa dikasih padding vertikal) */
+  margin-top: 15px;
+}
+
+/* ============================================================
+   FOOTER (baris hak cipta paling bawah)
+   ============================================================ */
+.footer {
+  background-color: #0d1b2a; /* biru dongker, kontras dengan header yang terang */
+  color: #ffffff;
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+}

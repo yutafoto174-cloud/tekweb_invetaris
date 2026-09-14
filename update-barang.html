@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Data Barang - KMK Undiksha</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER: sama seperti index.html, tapi subjudulnya beda ===== -->
+  <div class="header">
+    <img src="images/logo-kmk.png" alt="Logo KMK Undiksha" />
+    <div>
+      <h1>Selamat Datang</h1>
+      <p>Laman update data inventaris KMK Undiksha</p>
+    </div>
+  </div>
+
+  <!-- ===== LAYOUT 2 KOLOM pakai <table>: menu di kiri, form di kanan ===== -->
+  <table class="layout">
+    <tr>
+
+      <!-- KOLOM KIRI: menu navigasi -->
+      <td class="menu-col">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <!-- Link ke halaman welcome -->
+          <li><a href="#">Data Barang</a></li>
+          <!-- href="#" artinya link ini belum diarahkan ke halaman manapun (placeholder) -->
+          <li><a href="update-barang.html">Update Barang</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </td>
+
+      <!-- KOLOM KANAN: judul + form -->
+      <td>
+        <h2>Update Data Barang</h2>
+
+        <!-- 
+          <form> membungkus semua input.
+          action="#"  -> alamat tujuan data dikirim (belum ada backend, jadi "#")
+          method="post" -> cara data dikirim (post = data disembunyikan di request, aman untuk data agak besar/password)
+        -->
+        <form action="#" method="post">
+          <table class="form-table">
+
+            <!-- Setiap <tr> = satu baris field: label | titik dua | input -->
+            <tr>
+              <td class="label-col">Kode Barang</td>
+              <td>:</td>
+              <td>
+                <!-- input teks biasa, name="kode_barang" adalah nama variabel data ini nanti dikirim ke server -->
+                <input type="text" name="kode_barang" placeholder="Tuliskan Kode Barang" />
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Nama Barang</td>
+              <td>:</td>
+              <td><input type="text" name="nama_barang" placeholder="cth: Gitar, Kitab Suci, Salib Altar" /></td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Jumlah</td>
+              <td>:</td>
+              <td>
+                <!-- type="number" -> browser otomatis hanya menerima input angka, dan menampilkan tombol naik/turun kecil -->
+                <input type="number" name="jumlah" placeholder="Tuliskan Jumlah" min="0" />
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Kondisi Barang</td>
+              <td>:</td>
+              <td>
+                <!--
+                  Radio button: semua input dengan name="kondisi" yang SAMA
+                  membentuk satu grup, sehingga hanya boleh dipilih SATU dari ketiganya.
+                  atribut "checked" menandai pilihan default saat halaman pertama dibuka.
+                -->
+                <input type="radio" id="kd1" name="kondisi" value="Baik" checked />
+                <label for="kd1">Baik</label>
+                <!-- atribut "for" pada <label> harus sama dengan "id" pada input pasangannya,
+                     supaya teks label bisa diklik untuk memilih radio/checkbox-nya -->
+                <input type="radio" id="kd2" name="kondisi" value="Perlu Perbaikan" />
+                <label for="kd2">Perlu Perbaikan</label>
+                <input type="radio" id="kd3" name="kondisi" value="Rusak" />
+                <label for="kd3">Rusak</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Kategori</td>
+              <td>:</td>
+              <td>
+                <!--
+                  Checkbox: berbeda dari radio, name="kategori[]" BOLEH dipilih lebih dari satu.
+                  Tanda [] di belakang nama artinya "kirim sebagai kumpulan/array" saat diproses backend nanti.
+                -->
+                <input type="checkbox" id="kat1" name="kategori[]" value="Perlengkapan Liturgi" checked />
+                <label for="kat1">Perlengkapan Liturgi</label><br />
+                <input type="checkbox" id="kat2" name="kategori[]" value="Alat Musik" />
+                <label for="kat2">Alat Musik</label>
+                <input type="checkbox" id="kat3" name="kategori[]" value="Perlengkapan Acara" />
+                <label for="kat3">Perlengkapan Acara</label>
+                <input type="checkbox" id="kat4" name="kategori[]" value="Elektronik" />
+                <label for="kat4">Elektronik</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Lokasi Simpan</td>
+              <td>:</td>
+              <td>
+                <!-- <select> = dropdown, tiap <option> adalah satu pilihan; atribut "selected" jadi pilihan default -->
+                <select name="lokasi">
+                  <option value="Sekretariat KMK" selected>Sekretariat KMK</option>
+                  <option value="Gudang">Gudang</option>
+                  <option value="Ruang Doa">Ruang Doa</option>
+                  <option value="Aula">Aula</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col" style="vertical-align:top;">Keterangan</td>
+              <td style="vertical-align:top;">:</td>
+              <td>
+                <!-- <textarea> untuk input teks panjang/multi-baris, beda dari <input type="text"> yang cuma 1 baris -->
+                <textarea name="keterangan" placeholder="cth: dipinjam untuk misa/retret, dll"></textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2"></td>
+              <!-- colspan="2" menggabungkan 2 sel kosong jadi 1, supaya tombol Simpan sejajar dengan kolom input -->
+              <td>
+                <!-- type="submit" -> tombol ini yang memicu form dikirim ke "action" di atas -->
+                <button type="submit" class="btn-simpan">Simpan</button>
+              </td>
+            </tr>
+
+          </table>
+        </form>
+      </td>
+    </tr>
+  </table>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">Copyright &copy; KMK Undiksha</div>
+
+</body>
+</html>
